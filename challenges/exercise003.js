@@ -32,13 +32,33 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  // Your code here!
+  gotit = false;
+  MenuLoop:
+  for (var x = 0; x < menu.length; x++) {
+    IngredientsLoop:
+    for (var y = 0; y < menu[x].ingredients.length; y++){
+      if (menu[x].ingredients[y] == ingredient){
+        gotit = true;
+        break MenuLoop;
+    }
+    
+    }
+}
+  return gotit;
 }
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  // Your code here!
+  duparray = [];
+  for (var x = 0; x < arr1.length; x++) {
+    for(var y = 0; y < arr2.length; y++){
+      if ((arr1[x] == arr2[y]) && (duparray.indexOf(arr1[x]) === -1)){
+        duparray.push(arr1[x]);
+      }
+    }
+}
+return duparray.sort();
 }
 
 module.exports = {
