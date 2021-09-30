@@ -59,7 +59,7 @@ function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   y = 0;
   for (var x = 0; x < users.length; x++) {
-    if (users.type == "Linux"){
+    if (users[x].type == "Linux"){
       y += 1;
     }
   }
