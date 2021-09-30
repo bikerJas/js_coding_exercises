@@ -84,7 +84,7 @@ function simpleFizzBuzz(n) {
   } else if (n%5 === 0 ) {
     answer = "buzz";
   } else {
-    answer = n
+    answer = n;
   }
   return answer; 
 }
