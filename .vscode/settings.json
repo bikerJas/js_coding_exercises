@@ -1,0 +1,11 @@
+{
+    "eslint.nodeEnv": "",
+"eslint.options": {
+    "env":{
+        "es6":true
+    },
+    "parseOptions": {
+        "ecmaVersion": 7
+    }
+}
+}
