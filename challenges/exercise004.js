@@ -55,7 +55,11 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+  const squareroots = [];
+  for (let x = 0; x < nums.length; x++){
+    squareroots[x] = parseFloat((Math.sqrt(nums[x])).toFixed(2));
+  }
+  return squareroots;
 }
 
 function findSentencesContaining(sentences, str) {
