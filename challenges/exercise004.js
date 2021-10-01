@@ -11,7 +11,16 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // Your code here
+  firstLetter = names.filter(checkLetter);
+
+  function checkLetter(names){
+    if (names.substr(0,1) == char) {
+      return true;  
+    } else {
+      return false;
+    }
+  }
+  return firstLetter;
 }
 
 function findVerbs(words) {
