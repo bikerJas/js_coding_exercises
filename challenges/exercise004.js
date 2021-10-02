@@ -1,45 +1,49 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  const smallNums = [];
-  nums.forEach(function (number) {
-    if (number < 1){
-      smallNums.push(number);
-    }
-  });
-  return smallNums;
+  numbers = nums.filter(checkNums);
+
+  function checkNums(nums){
+    return nums < 1;
+  }
+  return numbers;
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  const firstLetter = [];
-  names.forEach(function (name){
-    if (name.substr(0,1) == char){
-      firstLetter.push(name);
+  firstLetter = names.filter(checkLetter);
+
+  function checkLetter(names){
+    if (names.substr(0,1) == char) {
+      return true;  
+    } else {
+      return false;
     }
-  });
+  }
   return firstLetter;
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  const verbs = [];
-  words.forEach(function (word){
-    if (word.substr(0,2) == "to" && word.substr(2,1) == " "){
-      verbs.push(word);
+  verbs = words.filter(checkWords);
+
+  function checkWords(words){
+    if (words.substr(0,2) == "to" && words.substr(2,1) == " "){
+      return true;
+    } else {
+      return false;
     }
-  });
+  }
  return verbs;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  const numbers = [];
-  nums.forEach(function (num){
-    if (Number.isInteger(num)){
-      numbers.push(num);
-    }
-    });
+  numbers = nums.filter(checkNums);
+
+  function checkNums(nums){
+    return Number.isInteger(nums);
+  }
   return numbers;
 }
 
@@ -88,16 +92,6 @@ function getLongestSides(triangles) {
     });
     longestSides.push(getLongestSide);
   });
-  /*for (let x = 0; x < triangles.length; x++){
-    let getLongestSide = 0;
-    const getTrianglesides = triangles[x];
-    for (let y = 0; y< getTrianglesides.length; y++){
-      if (getTrianglesides[y] > getLongestSide){
-        getLongestSide = getTrianglesides[y];
-      }
-    }
-    longestSides.push(getLongestSide);
-  }*/
   return longestSides;
 }
 
