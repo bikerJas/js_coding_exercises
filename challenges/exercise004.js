@@ -1,23 +1,21 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  numbers = nums.filter(checkNums);
-
-  function checkNums(nums){
-    return nums < 1;
+  const smallNums = [];
+  for (let x = 0; x < nums.length; x++){
+    if (nums[x] < 1){
+      smallNums.push(nums[x]);
+    }
   }
-  return numbers;
+  return smallNums;
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  firstLetter = names.filter(checkLetter);
-
-  function checkLetter(names){
-    if (names.substr(0,1) == char) {
-      return true;  
-    } else {
-      return false;
+  const firstLetter = [];
+  for (let x = 0; x < names.length; x++){
+    if (names[x].substr(0,1) == char){
+      firstLetter.push(names[x]);
     }
   }
   return firstLetter;
@@ -36,10 +34,11 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  numbers = nums.filter(checkNums);
-
-  function checkNums(nums){
-    return Number.isInteger(nums);
+  const numbers = [];
+  for (let x = 0; x < nums.length; x++){
+    if (Number.isInteger(nums[x])){
+      numbers.push(nums[x]);
+    }
   }
   return numbers;
 }
