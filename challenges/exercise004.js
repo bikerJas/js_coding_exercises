@@ -1,6 +1,6 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  numbers = nums.filter(checkNums);
+  let numbers = nums.filter(checkNums);
 
   function checkNums(nums){
     return nums < 1;
@@ -11,7 +11,7 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  firstLetter = names.filter(checkLetter);
+  let firstLetter = names.filter(checkLetter);
 
   function checkLetter(names){
     if (names.substr(0,1) == char) {
@@ -25,7 +25,7 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  verbs = words.filter(checkWords);
+  let verbs = words.filter(checkWords);
 
   function checkWords(words){
     if (words.substr(0,2) == "to" && words.substr(2,1) == " "){
@@ -39,7 +39,7 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  numbers = nums.filter(checkNums);
+  let numbers = nums.filter(checkNums);
 
   function checkNums(nums){
     return Number.isInteger(nums);

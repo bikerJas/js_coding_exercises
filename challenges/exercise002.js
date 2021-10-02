@@ -1,6 +1,6 @@
 function getFillings(sandwich) {
   if (sandwich === undefined) throw new Error("ingredients is required");
-  fillings = [];
+  const fillings = [];
   for (var x = 0; x < sandwich.fillings.length; x++){
     fillings[x] = sandwich.fillings[x];
   }
@@ -14,6 +14,7 @@ function isFromManchester(person) {
 
 function getBusNumbers(people) {
   if (people === undefined) throw new Error("people is required");
+  let buses = 0;
   switch (people) {
     case (people <= 40):
       buses = 1;
@@ -32,8 +33,8 @@ function getBusNumbers(people) {
 
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
-  num = 0;
-  for (var x = 0; x < arr.length; x++) {
+  let num = 0;
+  for (let x = 0; x < arr.length; x++) {
     if (arr[x] == "sheep") {
       num += 1;
     }
