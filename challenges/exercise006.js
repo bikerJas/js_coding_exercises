@@ -4,8 +4,18 @@
  * @param {Array} arr
  * @returns {Number}
  */
-const sumMultiples = arr => {
+const arr = [23,42,18,16,25];
+  const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  const mult3or5 = arr.filter(mult);
+
+  function mult(value) {
+    if (value%3 == 0){
+      return value *3; 
+   } else if (value%5 == 0){
+     return value * 5;
+   }
+  } console.log(mult3or5);
 };
 
 /**
