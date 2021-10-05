@@ -1,9 +1,11 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  for (let x = 0; x < nums.length; x++) {
-    nums[x] = Math.pow(nums[x], 2);
-  }
-  return nums;
+  const squaredNum = (item) => {
+    return Math.pow(item, 2);
+  };
+  const allSquaredNums = nums.map(squaredNum);
+
+  return allSquaredNums;
 }
 
 function camelCaseWords(words) {
@@ -23,7 +25,7 @@ function camelCaseWords(words) {
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   let subjects = 0;
-  for (var x = 0; x < people.length; x++) {
+  for (let x = 0; x < people.length; x++) {
     subjects += people[x].subjects.length;
 }
   return subjects;
@@ -35,7 +37,7 @@ function checkIngredients(menu, ingredient) {
   let gotit = false;
   MenuLoop:
   for (let x = 0; x < menu.length; x++) {
-    for (var y = 0; y < menu[x].ingredients.length; y++){
+    for (let y = 0; y < menu[x].ingredients.length; y++){
       if (menu[x].ingredients[y] == ingredient){
         gotit = true;
         break MenuLoop;
