@@ -4,7 +4,7 @@
  * @param {Array} arr
  * @returns {Number}
  */
-//const arr = [23,42,18,16,25];
+
   const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
 return arr.reduce(((total, num) => num % 5 == 0 || num % 3 == 0 ? total + num : total),0);
