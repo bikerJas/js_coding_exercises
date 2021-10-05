@@ -45,7 +45,7 @@ function reverseAllWords(words) {
   words.forEach(function (word){
   reversedWords.push( word.split("").reverse().join(""));
   });
-    return reversedWords;
+  return reversedWords;
   }
 
 
