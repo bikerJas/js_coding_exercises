@@ -2,27 +2,27 @@
 
 function printColours(colours){
     if (!colours) throw new Error("colour is required");
-    const allColours = [...colours];
-    return allColours;
+    //const allColours = [...colours];
+    return [...colours];
 }
 
 function shoppingList(list, newItem){
     if (!list) throw new Error("list is required");
     if (!newItem) throw new Error("newItem is required");
-    const newShoppingList = [...list, ...newItem];
-    return newShoppingList;
+    //const newShoppingList = [...list, ...newItem];
+    return [...list, ...newItem];
 }
 
 function highestNumber(numbers){
     if (!numbers) throw new Error("numbers are required");
-    const maxNum = Math.max(...numbers);
-    return maxNum;
+    //const maxNum = Math.max(...numbers);
+    return Math.max(...numbers);
 }
 
 function splitThatString(string){ 
     if (!string) throw new Error("string is required");
-    const splitString = [...string];
-    return splitString;
+    //const splitString = [...string];
+    return [...string];
 }
 
 
