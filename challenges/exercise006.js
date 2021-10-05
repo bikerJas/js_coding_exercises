@@ -4,18 +4,10 @@
  * @param {Array} arr
  * @returns {Number}
  */
-const arr = [23,42,18,16,25];
+//const arr = [23,42,18,16,25];
   const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
-  const mult3or5 = arr.filter(mult);
-
-  function mult(value) {
-    if (value%3 == 0){
-      return value *3; 
-   } else if (value%5 == 0){
-     return value * 5;
-   }
-  } console.log(mult3or5);
+return arr.reduce(((total, num) => num % 5 == 0 || num % 3 == 0 ? total + num : total),0);
 };
 
 /**
@@ -25,6 +17,7 @@ const arr = [23,42,18,16,25];
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  return str === str.replace(/[^CGTA ]/g, "");
 };
 
 /**
@@ -34,6 +27,9 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  else if (!isValidDNA(str)) throw new Error("string contains invalid DNA");
+  const mapping = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'};
+  return [...str].map(item => mapping[item]).join('');
 };
 
 /**
@@ -43,6 +39,14 @@ const getComplementaryDNA = str => {
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  else if (typeof n !== 'number') throw new Error("n must be a number");
+  else if (n < 2) throw new Error("n has to be greater than 2");
+  else if (n != Math.round(n)) throw new Error("n has to be an integer");
+  for (let x = 2; x <= Math.sqrt(n); x++){
+    if(n % x == 0)
+    return false;
+  }
+  return true;
 };
 
 /**
@@ -59,6 +63,17 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  if (typeof n !== 'number') throw new Error("n must be a number");
+  if (typeof fill !== 'string') throw new Error("fill must be a string");
+  let matrix = [];
+  for (let x = 0; x < n; x++){
+    let items = [];
+    for (let y = 0; y < n; y++){
+      items.push(fill);
+    }
+    matrix.push(items);
+  }
+  return matrix;
 };
 
 /**
@@ -76,6 +91,10 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  if (!Array.isArray(staff)) throw new Error("staff must be an array");
+  if (typeof day !== 'string') throw new Error("day must be a string");
+  return (
+    staff.filter((employees) => employees.rota.includes(day)).length >= 3);
 };
 
 module.exports = {
