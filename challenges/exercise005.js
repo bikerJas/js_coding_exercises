@@ -1,24 +1,13 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  let index = 0;
-
-  if (nums.indexOf(n) == -1){
-    return null;
-  }
-  else if (nums.indexOf(n) == nums.length-1){
-    return null;
-  }
-  else {
-    index = nums.indexOf(n);
-    return nums[index + 1];
-  }
-  
+  return nums.indexOf(n) == -1 || nums.indexOf(n) == nums.length - 1 ?
+  null : nums[nums.indexOf(n) + 1];
  };
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  const digits = {0:0,1:0};
+  let digits = {0:0,1:0};
 
   for (let x = 0; x < str.length; x++) {
     let digit = str[x];
@@ -33,22 +22,12 @@ const count1sand0s = str => {
   
  const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  let reversed = n.toString().split("").reverse().join("");
-  reversed = parseInt(reversed);
-  return reversed;
+  return parseInt(n.toString().split("").reverse().join(""));
 };
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  let totalArrays = 0;
-  arrs.forEach(function (subArray){
-    const innerArray = subArray;
-    innerArray.forEach(function (total){
-      totalArrays += total;
-    });
-  
-});
-  return totalArrays;
+  return arrs.flat().reduce((totalArrays, sum) => totalArrays + sum, 0);
 };
 
 const arrShift = arr => {
