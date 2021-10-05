@@ -36,43 +36,36 @@ function getMiddleCharacter(str) {
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  let letters = word.split("");
-  let reverseletters = letters.reverse();
-  let reversed = reverseletters.join("");
-  return reversed;
+  return word.split("").reverse().join("");
 }
 
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
-  let num = words.length;
   const reversedWords = [];
-  for(var x = 0; x < num; x++){
-    const reversedWord = words[x];
-    let letters = reversedWord.split("");
-    let reversedletters = letters.reverse();
-    reversedWords[x] = reversedletters.join("");
-  }
-  return reversedWords;
+  words.forEach(function (words){
+  reversedWords.push( words.split("").reverse().join(""));
+  });
+    return reversedWords;
   }
 
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   let y = 0;
-  for (let x = 0; x < users.length; x++) {
-    if (users[x].type == "Linux"){
+  users.forEach(function (linuxUser){
+    if (linuxUser.type == "Linux"){
       y += 1;
     }
-  }
+  })
   return y;  
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   let sum = 0;
-  for (var x = 0; x < scores.length; x++){
-    sum += scores[x];
-  }
+  scores.forEach(function (score){
+    sum += score;
+  });
   return parseFloat((sum/scores.length).toFixed(2));
 }
 
