@@ -42,8 +42,8 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   const reversedWords = [];
-  words.forEach(function (words){
-  reversedWords.push( words.split("").reverse().join(""));
+  words.forEach(function (word){
+  reversedWords.push( word.split("").reverse().join(""));
   });
     return reversedWords;
   }
