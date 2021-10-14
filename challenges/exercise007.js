@@ -4,6 +4,10 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  else if (typeof n !== 'number') throw new Error('n must be a number');
+  else if (n < 0 ) throw new Error('n must be a positive number')
+
+  return [...String(n)].reduce((add, digit) => Number(add) + Number(digit), 0);
 };
 
 /**
@@ -14,9 +18,19 @@ const sumDigits = n => {
  * @param {Number} end
  * @param {Number} step
  */
-const createRange = (start, end, step) => {
+const createRange = (start, end, step = 1) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  if (typeof start !== 'number') throw new Error('start must be a number');
+  if (typeof end !== 'number') throw new Error('end must be a number');
+  if (end < start) throw new Error('end must be greater than start');
+
+  const range =[];
+
+  for (let x = start; x <= end; x += step) {
+    range.push(x);
+  }
+  return range;
 };
 
 /**
@@ -51,6 +65,22 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  let appUsers = [];
+
+  users.forEach((user) => {
+   user.screenTime.forEach((appTime) => {
+    let busyTime = 0; 
+    if (date === appTime.date) {
+      for (let app in appTime.usage) {
+        busyTime += appTime.usage[app];
+      }
+      if (busyTime > 100)
+      appUsers.push(user.username);
+      
+    }
+  });
+});
+return appUsers;
 };
 
 /**
@@ -65,6 +95,7 @@ const getScreentimeAlertList = (users, date) => {
  */
 const hexToRGB = hexStr => {
   if (hexStr === undefined) throw new Error("hexStr is required");
+  return 'rgb('+ parseInt((hexStr.slice(1,3)),16) +','+parseInt((hexStr.slice(3,5)),16) +','+parseInt((hexStr.slice(5,7)),16)+')';
 };
 
 /**
@@ -79,7 +110,42 @@ const hexToRGB = hexStr => {
  */
 const findWinner = board => {
   if (board === undefined) throw new Error("board is required");
-};
+  let winner = '';
+  let checkSquares = {};
+
+//get a single line of elements for the received filled board of noughts and crosses
+
+board.flat(3).forEach((xOr0,index) => {
+  checkSquares[index] = xOr0;
+});
+
+if (checkSquares[0] !== null && checkSquares[0] === checkSquares[1] && checkSquares[1] === checkSquares[2]){
+    winner = checkSquares[0];}
+  else if   
+ (checkSquares[3] !== null && checkSquares[3] === checkSquares[4] && checkSquares[4] === checkSquares[5]){
+    winner = checkSquares[3];}
+  else if 
+  (checkSquares[6] !== null && checkSquares[6] === checkSquares[7] && checkSquares[7] === checkSquares[8]){
+    winner = checkSquares[6];}
+ else if
+  (checkSquares[0] !== null && checkSquares[0] === checkSquares[3] && checkSquares[3] === checkSquares[6]){
+    winner = checkSquares[0];}
+ else if    
+  (checkSquares[1] !== null && checkSquares[1] === checkSquares[4] && checkSquares[4] === checkSquares[7]){
+    winner = checkSquares[1];}
+ else if
+  (checkSquares[2] !== null && checkSquares[2] === checkSquares[5] && checkSquares[5] === checkSquares[8]){
+    winner = checkSquares[2];}
+ else if
+  (checkSquares[0] !== null && checkSquares[0] === checkSquares[4] && checkSquares[4] === checkSquares[8]){
+    winner = checkSquares[0][0];}
+  else if
+  (checkSquares[2] !== null && checkSquares[2] === checkSquares[4] && checkSquares[4] === checkSquares[6]){
+    winner = checkSquares[2];}
+  else { 
+    winner = null;  
+  } return winner;
+ };
 
 module.exports = {
   sumDigits,

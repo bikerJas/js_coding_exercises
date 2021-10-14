@@ -34,7 +34,7 @@ function getBusNumbers(people) {
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   let num = 0;
-  arr.forEach(function (count){
+  arr.forEach(count => {
     if (count == "sheep"){
       num += 1;
     }
